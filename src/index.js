@@ -1,9 +1,16 @@
 import refs from './js/refs';
 import fetchCountry from './js/fetchCountries';
 import countryCardTlt from './templates/country-card.hbs';
+import { error } from '@pnotify/core';
 
-refs.input.addEventListener('input', onSearch);
-function onSearch(e) {
+import '@pnotify/core/dist/PNotify.css';
+import '@pnotify/desktop/dist/PNotifyDesktop';
+import '@pnotify/core/dist/BrightTheme.css';
+const debounce = require('lodash.debounce');
+// console.log(countryCardTlt);
+refs.input.addEventListener('input', debounce(onSearch, 500));
+
+function onSearch() {
   const searchQuery = refs.input.value;
 
   fetchCountry(searchQuery)
