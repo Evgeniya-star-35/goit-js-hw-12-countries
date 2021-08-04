@@ -24,3 +24,7 @@ body {
     /* Firefox supports this but not yet `system-ui` */ 'Segoe UI', Roboto,
     Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
 }
+.country-name {
+  font-size: 40px;
+  text-align: center;
+}
