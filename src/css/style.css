@@ -17,6 +17,7 @@ img {
 body {
   margin: 0;
   padding: 0;
+  color: azure;
 }
 
 body {
@@ -27,4 +28,7 @@ body {
 .country-name {
   font-size: 40px;
   text-align: center;
+}
+.countryItem {
+  display: flex;
 }

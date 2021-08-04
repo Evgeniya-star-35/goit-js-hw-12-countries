@@ -9,7 +9,8 @@ refs.input.addEventListener('input', debounce(onSearch, 500));
 
 function onSearch() {
   const searchQuery = refs.input.value;
-  fetchCountry(searchQuery).then(renderCountryCard).catch(onFetchError);
+  fetchCountry(searchQuery).then(renderCountryCard);
+  // .catch(onFetchError);
 }
 
 function renderCountryCard(country) {
