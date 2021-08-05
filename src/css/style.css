@@ -22,20 +22,8 @@ body {
 }
 
 body {
-  font-family: system-ui, -apple-system,
-    /* Firefox supports this but not yet `system-ui` */ 'Segoe UI', Roboto,
-    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
-}
-.country-card__name {
-  font-size: 40px;
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: 60px;
-}
-
-.country-card__image {
-  width: 600px;
-  height: 100%;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial,
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
 }
 #search-box {
   width: 300px;
@@ -43,6 +31,45 @@ body {
   margin-top: 20px;
   margin-left: 20px;
 }
+.country-name {
+  font-size: 40px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: rgb(19, 19, 126);
+}
+
+.country-card__image {
+  width: 300px;
+  height: auto;
+}
+
 .country-card__list {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+.js-countryItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.country__content {
+  margin-right: 50px;
+}
+.country-card__item {
+  margin-bottom: 10px;
+  font-weight: normal;
+  font-size: 20px;
+}
+.country-card__item--subtitle {
+  font-weight: bold;
+  font-size: 20px;
+}
+.country-card__item--language {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: bolder;
+  color: rgb(6, 77, 77);
 }
