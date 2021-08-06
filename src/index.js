@@ -47,7 +47,6 @@ function onRenderListCountries(countries) {
     .map(country => listCountriesTpl(country))
     .join('');
 
-  console.log(listMarkup);
   refs.countries.insertAdjacentHTML('beforeend', listMarkup);
 }
 function onInputClear() {
