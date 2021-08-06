@@ -37,24 +37,13 @@ refs.input.addEventListener('input', debounce(onSearch, 500));
 //     onInputClear();
 //   }
 // }
-// function onRenderCountryCard(country) {
-//   const markup = countryCardTlt(country);
 
-//   refs.infoBox.innerHTML = markup;
-// }
 // function onRenderListCountries(countries) {
 //   const listMarkup = countries
 //     .map(country => listCountriesTpl(country))
 //     .join('');
 
 //   refs.countries.insertAdjacentHTML('beforeend', listMarkup);
-// }
-// function onInputClear() {
-//   refs.infoBox.innerHTML = '';
-//   refs.countries.innerHTML = '';
-// }
-// function onFetchError(Error) {
-//   Error;
 // }
 
 function onSearch() {
