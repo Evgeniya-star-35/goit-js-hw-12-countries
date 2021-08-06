@@ -3,9 +3,7 @@ import fetchCountry from './js/fetchCountries';
 import countryCardTlt from './templates/country-card.hbs';
 import listCountriesTpl from './templates/list-countries.hbs';
 
-// const { error } = require('@pnotify/core');
-import { defaultModules, error } from '@pnotify/core';
-import * as PNotifyDesktop from '@pnotify/desktop/dist/PNotifyDesktop';
+import { error } from '@pnotify/core';
 
 import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/desktop/dist/PNotifyDesktop';
@@ -14,27 +12,25 @@ var debounce = require('lodash.debounce');
 refs.input.addEventListener('input', debounce(onSearch, 500));
 
 function onSearch() {
-  const searchQuery = refs.input.value;
+  onInputClear();
+  const searchQuery = refs.input.value.trim();
 
-  fetchCountry(searchQuery)
-    .then(renderCountryCard)
-    .catch(error => console.log('error'));
+  fetchCountry(searchQuery).then(renderCountryCardAnswer).catch(onFetchError);
 }
 
-function renderCountryCard(country) {
+function renderCountryCardAnswer(country) {
+  onInputClear();
   if (country.length > 10) {
     error({
       text: 'Too many matches found. Please enter a more specific query!',
     });
   } else if (country.status === 404) {
+    console.log(country.status);
     error({
       text: 'No country has been found. Please enter a more specific query!',
     });
   } else if (country.length === 1) {
     onRenderCountryCard(country);
-    // const markup = countryCardTlt(country);
-    // console.log(markup);
-    // refs.infoBox.innerHTML = markup;
   } else if (country.length <= 10) {
     onRenderListCountries(country);
   } else if (country.length === 0) {
@@ -43,13 +39,21 @@ function renderCountryCard(country) {
 }
 function onRenderCountryCard(country) {
   const markup = countryCardTlt(country);
-  console.log(markup);
+
   refs.infoBox.innerHTML = markup;
 }
-function onRenderListCountries(country) {
-  const listMarkup = listCountriesTpl(country.name);
+function onRenderListCountries(countries) {
+  const listMarkup = countries
+    .map(country => listCountriesTpl(country))
+    .join('');
+
+  console.log(listMarkup);
   refs.countries.insertAdjacentHTML('beforeend', listMarkup);
 }
 function onInputClear() {
-  refs.input.value = '';
+  refs.infoBox.innerHTML = '';
+  refs.countries.innerHTML = '';
+}
+function onFetchError(Error) {
+  Error;
 }

@@ -26,7 +26,7 @@ body {
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
 }
 #search-box {
-  width: 300px;
+  width: 250px;
   height: 40px;
   margin-top: 20px;
   margin-left: 20px;
@@ -73,4 +73,17 @@ body {
   font-size: 20px;
   font-weight: bolder;
   color: rgb(6, 77, 77);
+}
+.country-card__item--language::before {
+  content: '\25E6 	\0020';
+  font-size: 25px;
+}
+.listCountry {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.listCountry::before {
+  content: '\2022 	\0020';
+  font-size: 25px;
 }
