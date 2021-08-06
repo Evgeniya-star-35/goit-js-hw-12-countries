@@ -49,7 +49,9 @@ refs.input.addEventListener('input', debounce(onSearch, 500));
 function onSearch() {
   onInputClear();
   const searchQuery = refs.input.value.trim();
-
+  // if (searchQuery === ' ') {
+  //   return alert('Enter the country name!');
+  // }
   fetchCountry(searchQuery)
     .then(country => {
       if (country.length > 10) {
