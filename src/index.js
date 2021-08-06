@@ -85,10 +85,8 @@ function onRenderCountryCard(country) {
 
   refs.infoBox.innerHTML = markup;
 }
-function onRenderListCountries(countries) {
-  const listMarkup = countries
-    .map(country => listCountriesTpl(country))
-    .join('');
+function onRenderListCountries(country) {
+  const listMarkup = listCountriesTpl(country);
 
   refs.countries.insertAdjacentHTML('beforeend', listMarkup);
 }
