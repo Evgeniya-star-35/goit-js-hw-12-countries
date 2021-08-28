@@ -2,7 +2,6 @@ import refs from './js/refs';
 import fetchCountry from './js/fetchCountries';
 import countryCardTlt from './templates/country-card.hbs';
 import listCountriesTpl from './templates/list-countries.hbs';
-
 import { error } from '@pnotify/core';
 
 import '@pnotify/core/dist/PNotify.css';
